@@ -100,7 +100,12 @@ void HX711::set_gain(byte gain) {
 long HX711::read() {
 
 	// Wait for the chip to become ready.
-	wait_ready();
+	//wait_ready();
+	// Return 0 if the chip is not ready.
+	if (!is_ready())
+	{
+		return 0;
+	}
 
 	// Define structures for reading data into.
 	unsigned long value = 0;
