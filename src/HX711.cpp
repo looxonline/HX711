@@ -101,11 +101,13 @@ long HX711::read() {
 
 	// Wait for the chip to become ready.
 	//wait_ready();
+	if (!wait_ready_timeout(100,1)) return 0;	// Delay for up to 100ms at 1ms intervals
 	// Return 0 if the chip is not ready.
-	if (!is_ready())
-	{
-		return 0;
-	}
+	//if (!is_ready())
+	//{
+	//	return 0;
+	//}
+	//wait_ready_retry(10, 1);
 
 	// Define structures for reading data into.
 	unsigned long value = 0;
