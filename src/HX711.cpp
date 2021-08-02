@@ -101,7 +101,7 @@ long HX711::read() {
 
 	// Wait for the chip to become ready.
 	//wait_ready();
-	if (!wait_ready_timeout(100,1)) return 0;	// Delay for up to 100ms at 1ms intervals
+	if (!wait_ready_timeout(150,1)) return 0;	// Delay for up to 100ms at 1ms intervals
 	// Return 0 if the chip is not ready.
 	//if (!is_ready())
 	//{
